@@ -353,9 +353,13 @@ case class TransactionApiEndpoint(
   private def broadcastTx(params: Json, id: String): Future[Json] = Future {
     (for {
       tx <- params.hcursor.get[Transaction[_, _ <: Proposition]]("tx")
-    } yield tx.syntacticValidate.map { _ =>
+    } yield {
+      println(s"\n>>>>>>>>>>>>>>>> tx: $tx")
+      println(s"message to sign: ${Base58.encode(tx.messageToSign)}")
+      tx.syntacticValidate.map { _ =>
       nodeViewHolderRef ! LocallyGeneratedTransaction(tx)
       tx.asJson
+    }
     }) match {
       case Right(Success(json)) => json
       case Right(Failure(ex))   => throw new Exception (ex)
