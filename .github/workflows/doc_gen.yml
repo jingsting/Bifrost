@@ -1,8 +1,8 @@
 name: Generate Documentation
 
 on:
-  commit:
-    branches: [ dev ]
+  push:
+    branches: [ main ]
 
 jobs:
   build:
