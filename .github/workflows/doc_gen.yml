@@ -16,14 +16,14 @@ jobs:
 
     steps:
     - name: Checkout current branch (full)
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
  
     - name: Setup Java and Scala
-        uses: olafurpg/setup-scala@v10
-        with:
-          java-version: ${{ matrix.java }}
+      uses: olafurpg/setup-scala@v10
+      with:
+        java-version: ${{ matrix.java }}
  
 #     - name: Show java version
 #       run: java -version
