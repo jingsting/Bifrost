@@ -24,15 +24,12 @@ jobs:
       uses: olafurpg/setup-scala@v10
       with:
         java-version: ${{ matrix.java }}
- 
-#     - name: Show java version
-#       run: java -version
-      
-#     - name: Run tests
-#       run: sbt test
       
     - name: Generate documentation
       run: sbt "project node" "doc"
+      
+    - name: Move js file into co.topl
+      run: mv ./node/target/scala-2.12/api/index.js ./node/target/scala-2.12/api/co/topl
 
     - name: Deploy github pages
       uses: peaceiris/actions-gh-pages@v3
