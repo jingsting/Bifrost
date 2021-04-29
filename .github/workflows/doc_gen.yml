@@ -27,14 +27,11 @@ jobs:
       
     - name: Generate documentation
       run: sbt "project node" "doc"
-      
-    - name: Move js file into co.topl
-      run: mv ./node/target/scala-2.12/api/index.js ./node/target/scala-2.12/api/co/topl
 
     - name: Deploy github pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        publish_dir: ./node/target/scala-2.12/api/co/topl/
+        publish_dir: ./node/target/scala-2.12/api/
 #         cname: bifrost.docs.topl.co
  
