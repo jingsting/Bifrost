@@ -65,4 +65,3 @@ License
 Project Bifrost is licensed under the
 [Mozilla Public License 2.0 (MPL 2.0)](https://opensource.org/licenses/MPL-2.0), also included
 in our repository in the `LICENSE` file.
- 
